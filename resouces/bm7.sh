@@ -119,9 +119,9 @@ for ((i = 0; i < ${#list[@]}; i++)); do
 	fi
 
 	if [ "$(ls ${list[i]})" = "" ]; then
-		sed -i '1s/^/{\n  "version": 1,\n  "rules": [\n    {\n/g' ${list[i]}.json
+		sed -i '1s/^/{\n  "version": 2,\n  "rules": [\n    {\n/g' ${list[i]}.json
 	elif [ -f "${list[i]}.json" ]; then
-		sed -i '1s/^/{\n  "version": 1,\n  "rules": [\n    {\n/g' ${list[i]}.json
+		sed -i '1s/^/{\n  "version": 2,\n  "rules": [\n    {\n/g' ${list[i]}.json
 		sed -i '$ s/,$/\n    },\n    {/g' ${list[i]}.json
 		cat ${list[i]}/* >> ${list[i]}.json
 	else
